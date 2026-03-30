@@ -21,3 +21,15 @@ function calculate(){
 function backspace(){
   display.value = display.value.slice(0,-1);
 }
+
+let lastTouchEnd = 0;
+
+document.addEventListener("touchend", function(event){
+  let now = new Date().getTime();
+
+  if(now - lastTouchEnd <= 300){
+    event.preventDefault();
+  }
+
+  lastTouchEnd = now;
+}, false);
