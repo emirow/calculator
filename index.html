@@ -5,8 +5,80 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Calculator</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
 
+body{
+  background:#f7f7fa;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:Arial;
+}
+
+.calculator{
+  background:#f4f4f5;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+  width: 100%;
+  max-width: 320px;
+}
+
+#display{
+  width:100%;
+  height:60px;
+  border:none;
+  border-radius:10px;
+  margin-bottom:20px;
+  font-size:22px;
+  padding:10px;
+  background:#c0c2c6;
+  color:black;
+  text-align:right;
+  box-sizing: border-box;
+}
+
+.buttons{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+button{
+  height:60px;
+  border:none;
+  border-radius:12px;
+  font-size:20px;
+  cursor:pointer;
+  background:#2b2f3a;
+  color:white;
+  box-shadow:0 4px 10px rgba(255,255,255,0.5);
+  transition:0.2s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+.operator{
+  background:#f39c12;
+}
+
+.equal{
+  background:#1d8bd5;
+}
+
+.clear{
+  background:#d35137;
+  grid-column: span 2;
+}
+.backspace {
+  background:#d35137;
+  grid-column: span 2;
+}
+
+</style>
 </head>
 
 <body>
@@ -18,7 +90,7 @@
 <div class="buttons">
 
 <button class="clear" onclick="clearDisplay()">C</button>
-<button class="backspace" onclick="backspace()">del</button>
+<button class="backspace" onclick="backspace()">DEL</button>
 
 <button onclick="add('7')">7</button>
 <button onclick="add('8')">8</button>
@@ -28,7 +100,7 @@
 <button onclick="add('4')">4</button>
 <button onclick="add('5')">5</button>
 <button onclick="add('6')">6</button>
-<button class="operator" onclick="add('*')">×</button>
+<button class="operator" onclick="add('*')">×</button> <!-- исправлено -->
 
 <button onclick="add('1')">1</button>
 <button onclick="add('2')">2</button>
@@ -44,7 +116,33 @@
 
 </div>
 
-<script src="script.js"></script>
+<script>
+
+let display = document.getElementById("display");
+
+function add(value){
+  if(display.value.length < 20) {
+    display.value += value;
+  }
+}
+
+function clearDisplay(){
+  display.value = "";
+}
+
+function calculate(){
+  try{
+    display.value = eval(display.value);
+  }catch{
+    display.value = "Error";
+  }
+}
+
+function backspace() {
+  display.value = display.value.slice(0, -1);
+}
+
+</script>
 
 </body>
 </html>
