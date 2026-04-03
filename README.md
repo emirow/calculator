@@ -5,7 +5,7 @@ It performs basic arithmetic operations and demonstrates basic JavaScript logic 
 
 🌐 Live Demo
 
-https://emirow.github.io/calculator/
+https://usmrem.github.io/calculator/
 
 🚀 About The Project
 
@@ -29,4 +29,4 @@ Add animations
 
 Emirow
 
-GitHub: https://github.com/emirow
+GitHub: https://github.com/usmrem
