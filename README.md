@@ -27,6 +27,4 @@ Improve UI design
 Add animations
 👨‍💻 Author
 
-Emirow
-
 GitHub: https://github.com/usmrem
